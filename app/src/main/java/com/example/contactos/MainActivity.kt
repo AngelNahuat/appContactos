@@ -9,6 +9,15 @@ import android.widget.ListView
 import androidx.appcompat.widget.Toolbar
 
 class MainActivity : AppCompatActivity() {
+    var Lista:ListView?=null
+    var adapter:AdaptadorCustom?=null
+companion object{
+    var contacto:ArrayList<Contacto>?=null
+
+    fun agregarCon(contactos: Contacto){
+        contacto?.add(contactos)
+    }
+}
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,12 +26,12 @@ class MainActivity : AppCompatActivity() {
 
         val toolbar=findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
-        var contacto:ArrayList<Contacto>
+
         contacto= ArrayList()
         contacto!!.add(Contacto("Angel","Nahuat","Telmex",18,55.0F,"Felipe Carrillo Puerto 77200","9831152335","nglnahuat@gmail.com",R.drawable.foto_01))
         val lista=findViewById<ListView>(R.id.lista)
         val adapter=AdaptadorCustom(this, contacto!!)
-        lista.adapter=adapter
+        lista?.adapter=adapter
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -33,7 +42,7 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item?.itemId){
             R.id.newview->{
-                val intent=Intent(this,Detalle::class.java)
+                val intent=Intent(this,Nuevo::class.java)
                 startActivity(intent)
                 return true
 
@@ -42,5 +51,9 @@ class MainActivity : AppCompatActivity() {
 
         }
 
+    override fun onResume() {
+        super.onResume()
+        adapter?.notifyDataSetChanged()
+    }
 
 }

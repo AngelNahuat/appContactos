@@ -10,10 +10,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Contactos">
         <activity
+            android:name=".Nuevo"
+            android:exported="false"
+
+            android:parentActivityName=".MainActivity"/>
+        <activity
             android:name=".Detalle"
             android:exported="false"
-            android:parentActivityName=".MainActivity"
-            />
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

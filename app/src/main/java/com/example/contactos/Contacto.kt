@@ -7,6 +7,8 @@ class Contacto(
     telefono:String,
     correo:String,
     foto:Int) {
+
+
     var nombre:String="";
     var apellido:String="";
     var empresa:String="";

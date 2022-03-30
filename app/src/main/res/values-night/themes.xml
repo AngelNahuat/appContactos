@@ -14,6 +14,6 @@
         <!-- Customize your theme here. -->
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-        <item name="android:windowLightStatusBar"></item>
+        <item name="android:windowLightStatusBar">true</item>
     </style>
 </resources>
